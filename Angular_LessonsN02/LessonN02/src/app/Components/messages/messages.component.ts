@@ -3,7 +3,7 @@ import {MessageService} from "../../Services/message.service";
 import {NgForOf, NgIf} from "@angular/common";
 
 @Component({
-    selector: 'app-message',
+    selector: 'app-messages',
     standalone: true,
   imports: [
     NgIf,
