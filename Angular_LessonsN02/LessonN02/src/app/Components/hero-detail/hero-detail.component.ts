@@ -1,7 +1,8 @@
 import {Component, Input} from '@angular/core';
 import {NgIf, UpperCasePipe} from "@angular/common";
 import {FormsModule} from "@angular/forms";
-import {Hero} from "../Models/hero";
+import {Hero} from "../../Models/hero";
+
 
 @Component({
   selector: 'app-hero-detail',
