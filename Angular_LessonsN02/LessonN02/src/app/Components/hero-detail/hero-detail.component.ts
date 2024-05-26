@@ -1,7 +1,11 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {NgIf, UpperCasePipe} from "@angular/common";
 import {FormsModule} from "@angular/forms";
 import {Hero} from "../../Models/hero";
+import {ActivatedRoute} from "@angular/router";
+import {HeroService} from "../../Services/hero.service";
+import { Location } from '@angular/common';
+
 
 
 @Component({
@@ -19,4 +23,23 @@ import {Hero} from "../../Models/hero";
 
 export class HeroDetailComponent {
   @Input() hero?: Hero;
+  constructor(private route: ActivatedRoute,
+              private heroService: HeroService,
+              private location: Location) {}
+
+
+  ngOnInit(): void {
+    this.getHero();
+  }
+
+  getHero(): void {
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    this.heroService.getHero(id)
+      .subscribe(hero => this.hero = hero);
+  }
+
+  goBack(): void {
+    this.location.back();
+  }
 }
+
