@@ -1,4 +1,26 @@
-<!--
+<h2>My Heroes</h2>
+<ul class="heroes">
+  <li *ngFor="let hero of heroes">
+    <a routerLink="/detail/{{hero.id}}">
+      <span class="badge">{{hero.id}}</span> {{hero.name}}
+    </a>
+  </li>
+</ul>
+
+<!--Ikkinchi martda o'zgarishi-->
+<!--<h2>My Heroes</h2>-->
+
+<!--<ul class="heroes">-->
+<!--  <li *ngFor="let hero of heroes">-->
+<!--    <button [class.selected]="hero === selectedHero" type="button" (click)="onSelect(hero)">-->
+<!--      <span class="badge">{{hero.id}}</span>-->
+<!--      <span class="name">{{hero.name}}</span>-->
+<!--    </button>-->
+<!--  </li>-->
+<!--</ul>-->
+<!--<app-hero-detail [hero]="selectedHero"></app-hero-detail>-->
+
+<!-- boshida o'zgargan bitta hero uchun bu
 <div>
   <label for="name"> Hero name:</label>
   <input type="text" id="name" [(ngModel)]="hero.name" placeholder="name">
@@ -10,24 +32,17 @@
 
 -->
 
-<h2>My Heroes</h2>
-
-<ul class="heroes">
-  <li *ngFor="let hero of heroes">
-    <button [class.selected]="hero === selectedHero" type="button" (click)="onSelect(hero)">
-      <span class="badge">{{hero.id}}</span>
-      <span class="name">{{hero.name}}</span>
-    </button>
-  </li>
-</ul>
-<app-hero-detail [hero]="selectedHero"></app-hero-detail>
-
+<!--Birinchi martda o'zgarishi hero collection uchun-->
 <!--Bu app-hero-detail ni bitta html file ichiga qo'yib yozilgani va keyinroq uni component sifatida chiqardim readability ni oshirildi-->
-<!--<div *ngIf="selectedHero">-->
-<!--  <h2>{{ selectedHero.name | uppercase }} Details</h2>-->
-<!--  <div>id: {{ selectedHero.id }}</div>-->
-<!--  <div>-->
-<!--    <label for="hero-name">Hero name: </label>-->
-<!--    <input id="hero-name" [ngModel]="selectedHero.name"  placeholder="name">-->
-<!--  </div>-->
-<!--</div>-->
+
+<!-----
+<div *ngIf="selectedHero">
+  <h2>{{ selectedHero.name | uppercase }} Details</h2>
+  <div>id: {{ selectedHero.id }}</div>
+  <div>
+    <label for="hero-name">Hero name: </label>
+<input id="hero-name" [ngModel]="selectedHero.name"  placeholder="name">
+  </div>
+</div>
+
+-->
