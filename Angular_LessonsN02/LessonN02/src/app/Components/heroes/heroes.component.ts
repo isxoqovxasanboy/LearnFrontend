@@ -24,9 +24,11 @@ import {RouterLink} from "@angular/router";
 })
 export class HeroesComponent implements OnInit {
 
-  public selectedHero?: Hero;
+  hero?: Hero;
   public heroes: Hero[] = [];
+  public selectedHero?: Hero;
   private heroService: HeroService;
+
   private messageService: MessageService;
 
   constructor(heroService: HeroService, messageService: MessageService) {
@@ -43,7 +45,24 @@ export class HeroesComponent implements OnInit {
     this.heroService.getHeroes().subscribe(heroes => this.heroes = heroes);
   }
 
+  add(name: string) {
+    name = name.trim();
+    if (!name){
+      return;
+    }
+
+    this.heroService.addHero({name} as Hero)
+      .subscribe(hero => {
+        this.heroes.push(hero);
+      });
+  }
+
   ngOnInit(): void {
     this.getHeroes();
+  }
+
+  delete(hero: Hero): void {
+    this.heroes = this.heroes.filter(h => h !== hero);
+    this.heroService.deleteHero(hero.id!).subscribe();
   }
 }
