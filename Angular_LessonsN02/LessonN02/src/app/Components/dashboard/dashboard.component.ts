@@ -3,13 +3,15 @@ import {Hero} from "../../Models/hero";
 import {HeroService} from "../../Services/hero.service";
 import {RouterLink} from "@angular/router";
 import {NgForOf} from "@angular/common";
+import {HeroSearchComponent} from "../hero-search/hero-search.component";
 
 @Component({
   selector: 'app-dashboard',
   standalone : true,
   imports: [
     RouterLink,
-    NgForOf
+    NgForOf,
+    HeroSearchComponent
   ],
   templateUrl: './dashboard.component.html',
   styleUrls: [ './dashboard.component.css' ],
