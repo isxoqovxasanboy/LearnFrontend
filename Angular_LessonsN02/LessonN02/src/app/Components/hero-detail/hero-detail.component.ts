@@ -1,10 +1,11 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {NgIf, UpperCasePipe} from "@angular/common";
+import {NgForOf, NgIf, UpperCasePipe} from "@angular/common";
 import {FormsModule} from "@angular/forms";
 import {Hero} from "../../Models/hero";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, RouterLink} from "@angular/router";
 import {HeroService} from "../../Services/hero.service";
 import { Location } from '@angular/common';
+import {HeroSearchComponent} from "../hero-search/hero-search.component";
 
 
 
@@ -14,7 +15,10 @@ import { Location } from '@angular/common';
   imports: [
     NgIf,
     FormsModule,
-    UpperCasePipe
+    UpperCasePipe,
+    HeroSearchComponent,
+    RouterLink,
+    NgForOf
   ],
   templateUrl: './hero-detail.component.html',
   styleUrl: './hero-detail.component.css'
@@ -23,6 +27,7 @@ import { Location } from '@angular/common';
 
 export class HeroDetailComponent {
   @Input() hero?: Hero;
+  heroes: Hero[] = [];
   constructor(private route: ActivatedRoute,
               private heroService: HeroService,
               private location: Location) {}
@@ -40,6 +45,11 @@ export class HeroDetailComponent {
 
   goBack(): void {
     this.location.back();
+  }
+
+  save() {
+      this.heroService.updateHero(this.hero!)
+          .subscribe(() => this.goBack());
   }
 }
 
