@@ -1,0 +1,48 @@
+.Hello {
+  width: 70%;
+  margin: 0 auto;
+}
+
+.box-1 {
+  margin-top: 30px;
+  background-color: #555555;
+  padding: 20px;
+  border: red 3px solid;
+}
+
+.box-1 h1 {
+  text-align: center;
+  text-decoration: underline;
+  font-family: sans-serif;
+  color: white;
+}
+
+.box-1 p {
+  color: white;
+}
+
+.box-2 {
+  margin-top: 30px;
+  border: #2f343f dashed;
+  padding: 20px;
+}
+
+.box-2 p, .box-2 h1 {
+  color: #555555;
+}
+
+.button {
+  background-color: #222;
+  color: white;
+  font-size: 18px;
+  border: 1px solid #222;
+  padding: 5px 15px;
+  border-radius: 8px;
+}
+
+.button:hover {
+  cursor: pointer;
+    background-color: #ffffff;
+    color: black;
+}
+

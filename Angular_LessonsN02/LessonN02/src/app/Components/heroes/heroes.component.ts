@@ -50,6 +50,7 @@ export class HeroesComponent implements OnInit {
     if (!name){
       return;
     }
+    let s = name;
 
     this.heroService.addHero({name} as Hero)
       .subscribe(hero => {
@@ -62,6 +63,7 @@ export class HeroesComponent implements OnInit {
   }
 
   delete(hero: Hero): void {
+    debugger
     this.heroes = this.heroes.filter(h => h !== hero);
     this.heroService.deleteHero(hero.id!).subscribe();
   }
