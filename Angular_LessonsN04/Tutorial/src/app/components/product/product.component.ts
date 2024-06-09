@@ -13,10 +13,10 @@ import {NgOptimizedImage} from "@angular/common";
 })
 export class ProductComponent {
   @Input() product!: Product;
-  @Output() productOutput: EventEmitter<Product> = new EventEmitter<Product>();
+  @Output() edite: EventEmitter<Product> = new EventEmitter<Product>();
 
-  addRating(): void {
-    this.productOutput.emit(this.product);
+  editProduct(): void {
+    this.edite.emit(this.product);
   }
 
 
